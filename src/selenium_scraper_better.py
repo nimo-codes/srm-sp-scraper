@@ -46,7 +46,6 @@ except Exception as error0:
 
 captcha_solved = 0
 try:
-  tt(1)
   img_captcha_base64 = driver.execute_async_script("""
           var ele = arguments[0], callback = arguments[1];
           ele.addEventListener('load', function fn(){
@@ -65,9 +64,9 @@ try:
   gray = img.convert('L')
   gray.save('/Users/jarvis/pymycod/automation/test folder/captcha_gray.png')
   captcha_solved= pytesseract.image_to_string(gray)
+  tt(1)
 except Exception as error1:
   err(error1,1)
-  tt(2)
   img_captcha_base64 = driver.execute_async_script("""
           var ele = arguments[0], callback = arguments[1];
           ele.addEventListener('load', function fn(){
@@ -86,6 +85,7 @@ except Exception as error1:
   gray = img.convert('L')
   gray.save('/Users/jarvis/pymycod/automation/test folder/captcha_gray.png')
   captcha_solved= pytesseract.image_to_string(gray)
+  tt(2)
   
 try: 
   login = wait.until(EC.presence_of_element_located((By.XPATH, '//*[@id="login"]')))
